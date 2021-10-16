@@ -1,13 +1,13 @@
 const today = new Date();
-today.getFullDate(); // error
+// today.getFullDate(); // error
 
 const num = 2;
-num.toPrecison(); // errror
+// num.toPrecison(); // errror
 
 const person = {
     name: "Maii",
 };
-console.log(person.age); // error
+// console.log(person.age); // error
 
 class Animal {
     fly() {
@@ -15,4 +15,4 @@ class Animal {
     }
 }
 const bird = new Animal();
-bird.swim(); // error
+// bird.swim(); // error
