@@ -1,8 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-class App extends React.Component {
-  state = { counter: 0 };
+interface IAppProps {
+  color?: string;
+}
+
+interface IAppState {
+  counter: number;
+}
+class App extends React.Component<IAppProps, IAppState> {
+  constructor(props: IAppProps) {
+    super(props);
+    this.state = { counter: 0 };
+  }
 
   onIncClick = () => {
     this.setState({ counter: this.state.counter + 1 });
