@@ -1,14 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-interface IAppProps {
-  text: string;
-  color?: string;
-}
-class App extends React.Component<IAppProps> {
+class App extends React.Component {
+  state = { counter: 0 };
+
+  onIncClick = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  };
+
+  onDecClick = () => {
+    this.setState({ counter: this.state.counter - 1 });
+  };
+
   render() {
-    return <div style={{ color: this.props.color }}>{this.props.text}</div>;
+    return (
+      <div>
+        <button onClick={this.onIncClick}>inc</button>
+        <p>{this.state.counter}</p>
+        <button onClick={this.onDecClick}>dec</button>
+      </div>
+    );
   }
 }
 
-ReactDOM.render(<App text="Hello, world!" />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
