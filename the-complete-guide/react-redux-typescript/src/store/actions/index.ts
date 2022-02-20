@@ -6,12 +6,18 @@ interface ITodo {
   title: string;
   completed: boolean;
 }
+
+interface IFetchTodoList {
+  type: ActionTypes.fetchTodos;
+  payload: ITodo[];
+}
+
 const url = "https://jsonplaceholder.typicode.com/todos";
 
-export const fetchTodos = () => async (dispatch: Dispatch) => {
+export const fetchTodoList = () => async (dispatch: Dispatch) => {
   const response = await axios.get<ITodo[]>(url);
   console.log(response);
-  dispatch({
+  dispatch<IFetchTodoList>({
     type: ActionTypes.fetchTodos,
     payload: response.data,
   });
