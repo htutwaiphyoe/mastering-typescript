@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-
+import { ActionTypes } from "./actionTypes";
 interface ITodo {
   id: number;
   title: string;
@@ -12,7 +12,7 @@ export const fetchTodos = () => async (dispatch: Dispatch) => {
   const response = await axios.get<ITodo[]>(url);
   console.log(response);
   dispatch({
-    type: "FETCH_TODOS",
+    type: ActionTypes.fetchTodos,
     payload: response.data,
   });
 };
