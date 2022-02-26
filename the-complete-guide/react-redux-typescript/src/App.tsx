@@ -1,25 +1,21 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { StoreState } from "./store/reducers";
+import { fetchTodoList, ITodo } from "./store/actions";
 
-interface IAppProps {
-  color?: string;
-}
+const App: React.FC = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const todoList = useSelector((state: StoreState) => state.todos);
 
-const App = (props: IAppProps): JSX.Element => {
-  const [counter, setCounter] = useState<number>(0);
-
-  const handleIncrement = () => {
-    setCounter((state) => state + 1);
-  };
-
-  const handleDecrement = () => {
-    setCounter((state) => state - 1);
-  };
+  useEffect(() => {
+    dispatch(fetchTodoList());
+  }, [dispatch]);
 
   return (
     <div>
-      <button onClick={handleIncrement}>inc</button>
-      <div>{counter}</div>
-      <button onClick={handleDecrement}>dec</button>
+      {todoList.map((item: ITodo) => (
+        <div key={item.id}>{item.title}</div>
+      ))}
     </div>
   );
 };
