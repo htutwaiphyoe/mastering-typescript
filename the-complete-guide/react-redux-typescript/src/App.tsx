@@ -14,7 +14,18 @@ const App: React.FC = (): JSX.Element => {
   return (
     <div>
       {todoList.map((item: ITodo) => (
-        <div key={item.id}>{item.title}</div>
+        <div
+          key={item.id}
+          style={{
+            padding: "20px",
+            margin: "20px",
+            cursor: "pointer",
+            background: "blueViolet",
+            color: "white",
+          }}
+        >
+          {item.title}
+        </div>
       ))}
     </div>
   );
