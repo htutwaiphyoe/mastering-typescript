@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import { StoreState } from "./store/reducers";
-import { fetchTodoList, ITodo } from "./store/actions";
+import { fetchTodoList, ITodo, deleteTodo } from "./store/actions";
 
 const App: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ const App: React.FC = (): JSX.Element => {
             background: "blueViolet",
             color: "white",
           }}
+          onClick={() => dispatch(deleteTodo(item.id))}
         >
           {item.title}
         </div>
