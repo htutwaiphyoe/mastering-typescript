@@ -1,5 +1,4 @@
-import { ActionTypes } from "../actions/actionTypes";
-import { ITodo, IFetchTodoList } from "../actions";
+import { ITodo, IFetchTodoList, ActionTypes } from "../actions";
 
 export const todosReducer = (state: ITodo[] = [], action: IFetchTodoList) => {
   switch (action.type) {
