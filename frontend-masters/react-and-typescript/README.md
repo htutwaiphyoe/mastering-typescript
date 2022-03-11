@@ -32,3 +32,11 @@ Typescript only looks the structural of object
 
 React comes with the whole bunch of type definitions for common things
 Tell typescript about the types if it cannot figure it out itself
+
+## Type vs Interface
+
+![Type Vs Interface](./typevsinterface.jpeg)
+
+```ts
+function add(a: number, ...otherProps: number[]) {}
+```
