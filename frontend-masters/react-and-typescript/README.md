@@ -40,3 +40,20 @@ Tell typescript about the types if it cannot figure it out itself
 ```ts
 function add(a: number, ...otherProps: number[]) {}
 ```
+
+## Type for React children
+
+- JSX.Element
+- JSX.Element | JSX.Element[]
+- React.ReactNode
+- React.ReactChildren
+- React.ReactChild[]
+- React.ReactChild
+
+JSX.Element => single child
+JSX.Element[] => does not accept text as child elements, Text in JSX has the type 'string', but the expected type of 'children' is 'Element[], requires multiple children
+JSX.Element | JSX.Element[] => does not accept text as child elements, Text in JSX has the type 'string'
+React.ReactChild => single child of type 'ReactChild', subset of React.ReactNode, does not include Portal
+React.ReactChild[] => requires multiple children of type 'ReactChild'
+React.Children => is not a type
+React.ReactNode => best solution for React children type, it supports all things
