@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { questions } from './questions';
 
 type QuestionProps = {
@@ -6,14 +7,16 @@ type QuestionProps = {
 };
 
 const Question = ({ question, answer }: QuestionProps) => {
+  const [isHidden, setIsHidden] = useState(false);
+
   return (
     <article className="question">
       <header>{question}</header>
       <p className="answer">
-        <span className="blurred">{answer}</span>
+        <span className={isHidden ? 'blurred' : 'visible'}>{answer}</span>
       </p>
       <footer>
-        <button>Toggle Answer</button>
+        <button onClick={() => setIsHidden(false)}>Toggle Answer</button>
       </footer>
     </article>
   );

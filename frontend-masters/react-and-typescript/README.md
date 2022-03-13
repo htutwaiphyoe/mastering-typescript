@@ -62,3 +62,7 @@ React.ReactNode => best solution for React children type, it supports all things
 
 React.CSSProperties => type of style object, catches misspell of css style properties
 Props can have default values
+
+## useState
+
+two states => the one we know and the one from api
