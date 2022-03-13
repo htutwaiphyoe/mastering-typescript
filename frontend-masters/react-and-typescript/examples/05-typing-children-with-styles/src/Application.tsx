@@ -4,7 +4,7 @@ type BoxProps = { children: React.ReactNode; style?: React.CSSProperties };
 
 const Box = ({ children, style = {} }: BoxProps) => {
   return (
-    <section style={{ padding: "1em", border: "5px solid purple", ...style }}>
+    <section style={{ padding: '1em', border: '5px solid purple', ...style }}>
       {children}
     </section>
   );
@@ -15,7 +15,7 @@ export default function Application() {
     <Box>
       Just a string.
       <p>Some HTML that is not nested.</p>
-      <Box style={{ borderColor: "red" }}>
+      <Box style={{ color: 'red' }}>
         <h2>Another React component with one child.</h2>
       </Box>
       <Box>

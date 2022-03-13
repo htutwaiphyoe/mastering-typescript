@@ -57,3 +57,8 @@ React.ReactChild => single child of type 'ReactChild', subset of React.ReactNode
 React.ReactChild[] => requires multiple children of type 'ReactChild'
 React.Children => is not a type
 React.ReactNode => best solution for React children type, it supports all things
+
+## CSS style type
+
+React.CSSProperties => type of style object, catches misspell of css style properties
+Props can have default values
