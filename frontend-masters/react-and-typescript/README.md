@@ -71,3 +71,9 @@ for the one we know, we don't need to add type declarations
 
 for the one from api, we need to give type of api response data and default type (null)
 useState<Type | Default>()
+
+## useEffect
+
+useEffect expects function signature that returns void or Destructor
+
+setTimeout and setInterval return numbers

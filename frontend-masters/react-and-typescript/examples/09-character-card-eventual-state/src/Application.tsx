@@ -3,8 +3,6 @@ import { CharacterInformation } from './CharacterInformation';
 import { CharacterType, fetchCharacter } from './characters';
 import { Loading } from './Loading';
 
-
-
 const Application = () => {
   const [character, setCharacter] = React.useState<CharacterType | null>(null);
   const [loading, setLoading] = React.useState(true);
