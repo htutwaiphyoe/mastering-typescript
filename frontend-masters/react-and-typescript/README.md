@@ -60,9 +60,14 @@ React.ReactNode => best solution for React children type, it supports all things
 
 ## CSS style type
 
-React.CSSProperties => type of style object, catches misspell of css style properties
+React.CSSProperties => type of inline style object, catches misspell of css style properties
 Props can have default values
 
 ## useState
 
 two states => the one we know and the one from api
+
+for the one we know, we don't need to add type declarations
+
+for the one from api, we need to give type of api response data and default type (null)
+useState<Type | Default>()
