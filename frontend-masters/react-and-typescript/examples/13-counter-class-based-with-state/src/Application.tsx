@@ -1,4 +1,4 @@
-import { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type CounterProps = {
   incident: string;
@@ -6,11 +6,13 @@ type CounterProps = {
 
 type CounterState = {
   count: number;
+  input: number;
 };
 
 class Counter extends Component<CounterProps, CounterState> {
   state: CounterState = {
-    count: 0
+    count: 0,
+    input: 0
   };
 
   increment = () => {
@@ -26,7 +28,14 @@ class Counter extends Component<CounterProps, CounterState> {
   };
 
   changeCount = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ count: +event.target.value });
+    this.setState({ input: +event.target.value });
+  };
+
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      count: prevState.count + prevState.input
+    }));
   };
 
   render() {
@@ -43,13 +52,9 @@ class Counter extends Component<CounterProps, CounterState> {
           <button onClick={this.decrement}>Decrement</button>
         </section>
         <section className="controls">
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-            }}
-          >
+          <form onSubmit={this.handleSubmit}>
             <label htmlFor="set-to">Set Count</label>
-            <input id="set-to" type="number" />
+            <input id="set-to" type="number" onChange={this.changeCount} />
           </form>
         </section>
       </main>
