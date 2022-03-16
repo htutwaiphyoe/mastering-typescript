@@ -83,6 +83,11 @@ setTimeout and setInterval return numbers
 class-based components two types in generic, props and state, <Props, State>
 
 react provides relevant types for each DOM event, and tools provide information for that
-eg. for input change event => React.ChangeEvent<HTMLInputElement>
+eg. for input change event => React.ChangeEvent<HTMLInputElement>,
+for form submit event => React.FormEvent<HTMLFormElement>
 
 typescript can also catch type cohesion of html input elements
+
+## events with hooks
+
+if event handler is inline function, typescript can infer the type of the event, no need to declare
