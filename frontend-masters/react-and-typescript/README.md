@@ -77,3 +77,12 @@ useState<Type | Default>()
 useEffect expects function signature that returns void or Destructor
 
 setTimeout and setInterval return numbers
+
+## Class-based components
+
+class-based components two types in generic, props and state, <Props, State>
+
+react provides relevant types for each DOM event, and tools provide information for that
+eg. for input change event => React.ChangeEvent<HTMLInputElement>
+
+typescript can also catch type cohesion of html input elements
