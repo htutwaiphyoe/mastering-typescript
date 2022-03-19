@@ -5,9 +5,9 @@
 ## Type declarations
 
 ```ts
-type Name{
-    property: type;
-}
+type Name = {
+  property: type;
+};
 ```
 
 ## Common Types
@@ -26,6 +26,7 @@ type Name{
 12. onChange(id: number): void
 13. add(a: number, b: number): number
 14. optional?: number
+15. & intercept
 
 Typescript uses **Structural Typing**, as long as the object that conforms to the shape, it is good to go,
 Typescript only looks the structural of object
@@ -91,3 +92,18 @@ typescript can also catch type cohesion of html input elements
 ## events with hooks
 
 if event handler is inline function, typescript can infer the type of the event, no need to declare
+
+## useReducer
+
+In typescript, types can intercept with each others, meaning new type can be created with the combination of two other types
+
+eg. type c = type a & type b, & meanings intercept
+
+useReducer is super helpful for more complicated state management
+
+if we define a type in reducer, typescript automatically defines type in useReducer function state,
+also in dispatch function, if we define a type in action, dispatch function automatically defines its type in useReducer function
+
+typescript saves some kinda unit tests
+
+snowballing means the consequences of changing, typescript helps for this
