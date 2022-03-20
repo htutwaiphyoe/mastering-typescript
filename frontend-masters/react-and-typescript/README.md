@@ -107,3 +107,5 @@ also in dispatch function, if we define a type in action, dispatch function auto
 typescript saves some kinda unit tests
 
 snowballing means the consequences of changing, typescript helps for this
+
+if there is an optional field in type, it might become some problem in reducer, so dividing two type for optional one is better
