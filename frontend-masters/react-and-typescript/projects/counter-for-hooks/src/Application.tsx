@@ -10,11 +10,11 @@ type FormCounterAction = {
   payload: number;
 };
 
-type BaseCounterAction = {
+type BasicCounterAction = {
   type: 'INCREMENT' | 'DECREMENT' | 'RESET';
 };
 
-type CounterAction = BaseCounterAction | FormCounterAction;
+type CounterAction = BasicCounterAction | FormCounterAction;
 
 const counterReducer = (state: CounterState, action: CounterAction) => {
   switch (action.type) {

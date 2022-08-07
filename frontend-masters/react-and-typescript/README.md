@@ -108,4 +108,8 @@ typescript saves some kinda unit tests
 
 snowballing means the consequences of changing, typescript helps for this
 
-if there is an optional field in type, it might become some problem in reducer, so dividing two type for optional one is better
+if there is an optional field in type, it might become some problem in reducer, so dividing two action for optional one is better
+
+typescript helps the intent of code flow for future proof
+
+## Context API
