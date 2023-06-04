@@ -1,4 +1,8 @@
-const NameBadge = (props: { name: string }) => {
+type NameBadgeProps = {
+  name: string;
+};
+
+const NameBadge = (props: NameBadgeProps) => {
   return (
     <section className="badge">
       <header className="badge-header">

@@ -13,6 +13,8 @@ Autocomplete
 More maintainable for larger code base
 Contribute the quality of code base overtime
 
+[Course URL](https://fem-react-typescript.vercel.app/)
+
 ## 02. React Component with TypeScript
 
 file extension => .tsx
@@ -34,12 +36,22 @@ ts.configs allowJS for migrating JS to TS
 JavaScript and TypeScript can live together pretty nicely.
 
 ```ts
-type Name = {
+type Props = {
   property: type;
 };
 ```
 
-## Common Types
+## 03. Typing Components Exercise
+
+It's convention to just take the name of components and tack on -Props on to the end.
+
+avoid any => Any is infectious, anything that any touches basically becomes any
+
+learning through doing
+
+events are not equal, hover the elements to get the props type
+
+typescript provides implicit documentation for pubic api
 
 1. string,
 2. number,
