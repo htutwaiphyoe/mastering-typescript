@@ -75,7 +75,15 @@ Typescript only looks the structural of object
 React comes with the whole bunch of type definitions for common things
 Tell typescript about the types if it cannot figure it out itself
 
-## Type vs Interface
+## 04. Typing Component Children Exercise
+
+React.PropsWithChildren type from react which accepts generic for other props
+
+React.ComponentPropsWithoutRef
+
+React.ComponentPropsWithRef
+
+[https://solverfox.dev/writing/no-implicit-children/](https://solverfox.dev/writing/no-implicit-children/)
 
 ![Type Vs Interface](./typevsinterface.jpeg)
 
