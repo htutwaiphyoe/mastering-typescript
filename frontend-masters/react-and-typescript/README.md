@@ -91,7 +91,7 @@ React.ComponentPropsWithRef
 function add(a: number, ...otherProps: number[]) {}
 ```
 
-## Type for React children
+## 05. Typing Component State
 
 - JSX.Element
 - JSX.Element | JSX.Element[]
@@ -108,12 +108,18 @@ React.ReactChild[] => requires multiple children of type 'ReactChild'
 React.Children => is not a type
 React.ReactNode => best solution for React children type, it supports all things
 
-## CSS style type
+useState is really a wrapper around useReducer
+
+use function setter for race condition of setState
+
+create new function outside of component for function setter to get easily tested
+
+## 06. Typing Component State Exercise
 
 React.CSSProperties => type of inline style object, catches misspell of css style properties
 Props can have default values
 
-## useState
+## 07. Fetching API Data
 
 two states => the one we know and the one from api
 
@@ -122,13 +128,13 @@ for the one we know, we don't need to add type declarations
 for the one from api, we need to give type of api response data and default type (null)
 useState<Type | Default>()
 
-## useEffect
+## 08. Fetching API Data Exercise
 
 useEffect expects function signature that returns void or Destructor
 
 setTimeout and setInterval return numbers
 
-## Class-based components
+## 09. Passing State Methods to Components
 
 class-based components two types in generic, props and state, <Props, State>
 
@@ -138,11 +144,11 @@ for form submit event => React.FormEvent<HTMLFormElement>
 
 typescript can also catch type cohesion of html input elements
 
-## events with hooks
+## 10. Typing Reducers
 
 if event handler is inline function, typescript can infer the type of the event, no need to declare
 
-## useReducer
+## 11. Reducers with Explicit any
 
 In typescript, types can intercept with each others, meaning new type can be created with the combination of two other types
 
