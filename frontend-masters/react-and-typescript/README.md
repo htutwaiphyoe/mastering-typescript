@@ -116,6 +116,10 @@ create new function outside of component for function setter to get easily teste
 
 ## 06. Typing Component State Exercise
 
+event.target.valueAsNumber
+
+useEffect function return a clean up function or undefined
+
 React.CSSProperties => type of inline style object, catches misspell of css style properties
 Props can have default values
 
