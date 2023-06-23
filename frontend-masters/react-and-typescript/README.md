@@ -125,6 +125,12 @@ Props can have default values
 
 ## 07. Fetching API Data
 
+[https://miragejs.com/](https://miragejs.com/)
+
+default data or generic type in useState for api data
+
+typescript also analyzes the code base and code path
+
 two states => the one we know and the one from api
 
 for the one we know, we don't need to add type declarations
