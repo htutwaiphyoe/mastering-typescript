@@ -140,9 +140,21 @@ useState<Type | Default>()
 
 ## 08. Fetching API Data Exercise
 
+for array, can use empty array
+
+any => anything
+unknown => don't know what it is
+never => isn't anything
+
+React age old problem => passing down to children
+
 useEffect expects function signature that returns void or Destructor
 
 setTimeout and setInterval return numbers
+
+onChange: ChangeEventHandler<HTMLInputElement>;
+
+onSubmit: FormEventHandler<HTMLFormElement>;
 
 ## 09. Passing State Methods to Components
 
