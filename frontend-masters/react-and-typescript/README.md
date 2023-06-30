@@ -15,6 +15,24 @@ Contribute the quality of code base overtime
 
 ## 02. React Component with TypeScript
 
+file extension => .tsx
+
+TypeScript tries its hardest to stay out of your way. If you find yourself out of the box, doing a ton of typing, that's probably an anti pattern. because of type inference
+
+any => any type
+
+can use PropTypes for JavaScript
+
+if typescript can figure out, can leave it. But if typescript cannot figure out, need to specify types
+
+typescript can check all files related with changes and also provide related methods for each data type. eg string for string methods
+
+typescript can save the number of unit tests.
+
+ts.configs allowJS for migrating JS to TS
+
+JavaScript and TypeScript can live together pretty nicely.
+
 ```ts
 type Name = {
   property: type;

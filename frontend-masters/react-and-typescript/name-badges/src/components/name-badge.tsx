@@ -1,4 +1,4 @@
-const NameBadge = () => {
+const NameBadge = (props: { name: string }) => {
   return (
     <section className="badge">
       <header className="badge-header">
@@ -6,7 +6,7 @@ const NameBadge = () => {
         <p>My name is…</p>
       </header>
       <div className="badge-body">
-        <p className="badge-name">Steve</p>
+        <p className="badge-name">{props.name}</p>
       </div>
       <footer className="badge-footer" />
     </section>
