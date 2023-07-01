@@ -1,8 +1,19 @@
 # React and TypeScript Projects
 
-## Introduction
+## 01. Introduction
 
-## Type declarations
+TypeScript with React components
+TypeScript details
+Patterns in React
+
+TypeScript sales pitch
+
+Type checking in compile time
+Autocomplete
+More maintainable for larger code base
+Contribute the quality of code base overtime
+
+## 02. React Component with TypeScript
 
 ```ts
 type Name = {
