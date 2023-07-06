@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
-const inc = (count: number) => count + 1;
-const dec = (count: number) => count - 1;
-const reset = () => 0;
+const counterReducer = (count: number, newCount: number): number => newCount;
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useReducer(counterReducer, 0);
   const [draftCount, setDraftCount] = useState(count);
 
   useEffect(() => setDraftCount(count), [count]);
@@ -15,9 +13,9 @@ const Counter = () => {
       <h1>Days Since the Last Accident</h1>
       <p className="text-6xl">{count}</p>
       <div className="flex gap-2">
-        <button onClick={() => setCount(dec)}>➖ Decrement</button>
-        <button onClick={() => setCount(reset)}>🔁 Reset</button>
-        <button onClick={() => setCount(inc)}>➕ Increment</button>
+        <button onClick={() => setCount(count - 1)}>➖ Decrement</button>
+        <button onClick={() => setCount(0)}>🔁 Reset</button>
+        <button onClick={() => setCount(count + 1)}>➕ Increment</button>
       </div>
       <div>
         <form

@@ -170,6 +170,19 @@ typescript can also catch type cohesion of html input elements
 
 if event handler is inline function, typescript can infer the type of the event, no need to declare
 
+useState is just an abstraction of a useReducer
+
+useReducer is light version of Redux
+ 
+use useReducer for many useState, state are depending on each other and deriving state
+
+reducer is just a pure javascript function which takes two arguments: state and action and returns new state based on that action
+
+can create useState using useReducer
+
+ReturnType<typeof reducer> is for figuring out type of useReducer state
+
+can import Dispatch type in React => React.Dispatch<> to Dispatch<>
 ## 11. Reducers with Explicit any
 
 In typescript, types can intercept with each others, meaning new type can be created with the combination of two other types
