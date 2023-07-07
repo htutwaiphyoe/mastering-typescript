@@ -183,9 +183,22 @@ can create useState using useReducer
 ReturnType<typeof reducer> is for figuring out type of useReducer state
 
 can import Dispatch type in React => React.Dispatch<> to Dispatch<>
+
 ## 11. Reducers with Explicit any
 
+no need to give a type if value has default value
+
+reducers follow the same rule as React which is everything's got to be immutable
+
 In typescript, types can intercept with each others, meaning new type can be created with the combination of two other types
+
+Redux is an implementation of flux
+
+Redux action has type and payload
+
+reducer is pure function and it is very testable
+
+one any can cost all type safety due to its butterfly effects
 
 eg. type c = type a & type b, & meanings intercept
 
@@ -201,5 +214,3 @@ snowballing means the consequences of changing, typescript helps for this
 if there is an optional field in type, it might become some problem in reducer, so dividing two action for optional one is better
 
 typescript helps the intent of code flow for future proof
-
-## Context API

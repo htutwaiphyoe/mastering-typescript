@@ -1,33 +1,89 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useReducer } from 'react';
 
-const counterReducer = (count: number, newCount: number): number => newCount;
+type counterState = {
+  count: number;
+  draftCount: number;
+};
+
+type counterAction = {
+  type: 'INC' | 'DEC' | 'RESET';
+  payload?: number;
+};
+
+type draftCounterAction = {
+  type: 'ONCHANGE' | 'UPDATE';
+  payload: number;
+};
+
+const initialCounterState: counterState = {
+  count: 0,
+  draftCount: 0,
+};
+
+const counterReducer = (
+  state = initialCounterState,
+  action: counterAction | draftCounterAction,
+): counterState => {
+  switch (action.type) {
+    case 'INC':
+      const incCount = state.count + 1;
+      return { count: incCount, draftCount: incCount };
+    case 'DEC':
+      const decCount = state.count - 1;
+      return { count: decCount, draftCount: decCount };
+    case 'RESET':
+      return { count: 0, draftCount: 0 };
+    case 'ONCHANGE':
+      return { ...state, draftCount: action.payload };
+    case 'UPDATE':
+      return { count: action.payload, draftCount: action.payload };
+    default:
+      return state;
+  }
+};
 
 const Counter = () => {
-  const [count, setCount] = useReducer(counterReducer, 0);
-  const [draftCount, setDraftCount] = useState(count);
-
-  useEffect(() => setDraftCount(count), [count]);
+  const [counterState, dispatchCounterState] = useReducer(
+    counterReducer,
+    initialCounterState,
+  );
 
   return (
-    <section className="flex w-2/3 flex-col items-center gap-8 border-4 border-primary-500 bg-white p-8 shadow-lg">
+    <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
       <h1>Days Since the Last Accident</h1>
-      <p className="text-6xl">{count}</p>
+      <p className="text-6xl">{counterState.count}</p>
       <div className="flex gap-2">
-        <button onClick={() => setCount(count - 1)}>➖ Decrement</button>
-        <button onClick={() => setCount(0)}>🔁 Reset</button>
-        <button onClick={() => setCount(count + 1)}>➕ Increment</button>
+        <button onClick={() => dispatchCounterState({ type: 'DEC' })}>
+          ➖ Decrement
+        </button>
+        <button onClick={() => dispatchCounterState({ type: 'RESET' })}>
+          🔁 Reset
+        </button>
+        <button onClick={() => dispatchCounterState({ type: 'INC' })}>
+          ➕ Increment
+        </button>
       </div>
       <div>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            setCount(draftCount);
+            dispatchCounterState({
+              type: 'UPDATE',
+              payload: +e.currentTarget['draftCount'].value,
+            });
           }}
         >
           <input
             type="number"
-            value={draftCount}
-            onChange={(e) => setDraftCount(e.target.valueAsNumber)}
+            id="draftCount"
+            name="draftCount"
+            value={counterState.draftCount}
+            onChange={(e) =>
+              dispatchCounterState({
+                type: 'ONCHANGE',
+                payload: e.target.valueAsNumber,
+              })
+            }
           />
           <button type="submit">Update Counter</button>
         </form>
