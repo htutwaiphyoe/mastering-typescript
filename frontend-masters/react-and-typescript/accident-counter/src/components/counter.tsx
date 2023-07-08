@@ -49,7 +49,7 @@ const Counter = () => {
   );
 
   return (
-    <section className="flex flex-col items-center w-2/3 gap-8 p-8 bg-white border-4 shadow-lg border-primary-500">
+    <section className="flex w-2/3 flex-col items-center gap-8 border-4 border-primary-500 bg-white p-8 shadow-lg">
       <h1>Days Since the Last Accident</h1>
       <p className="text-6xl">{counterState.count}</p>
       <div className="flex gap-2">

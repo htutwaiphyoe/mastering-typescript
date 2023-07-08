@@ -214,3 +214,11 @@ snowballing means the consequences of changing, typescript helps for this
 if there is an optional field in type, it might become some problem in reducer, so dividing two action for optional one is better
 
 typescript helps the intent of code flow for future proof
+
+## 12. Adding Types to Reducer Actions
+
+typescript reduces mental capacity for code complexity
+
+typescript knows no need default case if all cases are handled
+
+typescript provides autocomplete + static code analysis
