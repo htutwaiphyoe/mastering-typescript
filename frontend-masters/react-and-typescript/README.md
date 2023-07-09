@@ -228,3 +228,11 @@ typescript provides autocomplete + static code analysis
 color-convert
 
 typescript protect from lots of silly mistakes, but not ones that are totally legal and legit JavaScript
+
+## 14. Passing dispatch as a Prop
+
+type.d.ts for type definition file
+
+React 18 concurrent rendering => showing console.log twice, but it is not rendering twice
+
+typescript can solve static code error, not actual business
