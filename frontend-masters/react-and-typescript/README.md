@@ -222,3 +222,9 @@ typescript reduces mental capacity for code complexity
 typescript knows no need default case if all cases are handled
 
 typescript provides autocomplete + static code analysis
+
+## 13. Creating Actions for colorReducer
+
+color-convert
+
+typescript protect from lots of silly mistakes, but not ones that are totally legal and legit JavaScript
