@@ -236,3 +236,19 @@ type.d.ts for type definition file
 React 18 concurrent rendering => showing console.log twice, but it is not rendering twice
 
 typescript can solve static code error, not actual business
+
+## 15. Template Literal Types
+
+typescript has template literal types which is super powerful, string type but need to equal with template literal
+
+[template-literal-types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
+
+```ts
+type hexColor = `#${color}`;
+
+type colorFormats = 'rgb' | 'hex' | 'hsl' | 'hsv';
+
+type actionTypes = `update-${colorFormats}-color`;
+
+const isHexColor = (s: string): s is hexColor => s.startWith('#');
+```
