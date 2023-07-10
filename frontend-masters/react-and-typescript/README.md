@@ -252,3 +252,7 @@ type actionTypes = `update-${colorFormats}-color`;
 
 const isHexColor = (s: string): s is hexColor => s.startWith('#');
 ```
+
+## 16. Typing Actions & Reducers Exercise
+
+added dispatch to Related and Saved colors
