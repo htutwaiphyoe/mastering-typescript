@@ -5,6 +5,7 @@ import Application from './components/application';
 import { makeServer } from './api';
 
 import './index.css';
+import { ColorContextProvider } from './lib/color-context';
 
 const environment = process.env.NODE_ENV;
 makeServer({ environment });
@@ -15,6 +16,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Application />
+    <ColorContextProvider>
+      <Application />
+    </ColorContextProvider>
   </React.StrictMode>,
 );

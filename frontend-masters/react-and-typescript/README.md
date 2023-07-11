@@ -256,3 +256,14 @@ const isHexColor = (s: string): s is hexColor => s.startWith('#');
 ## 16. Typing Actions & Reducers Exercise
 
 added dispatch to Related and Saved colors
+
+## 17. Context API
+
+[context-redux-differences](https://blog.isquaredsoftware.com/2021/01/context-redux-differences/)
+
+for context api + reducer, context default value cannot accept reducer dispatch until it passes in context provider so default value is not equal to type.
+
+so to solve that typescript error,
+
+1. optional type of dispatch
+2. pretend and assume that type is already existed

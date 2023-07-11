@@ -1,17 +1,18 @@
-import { Dispatch } from 'react';
+import { useContext } from 'react';
 import ColorChangeSwatch from '../shared/color-change-swatch';
+import { ColorContext } from '../../lib/color-context';
 
 type RelatedColorPaletteProps = {
   title: string;
   hexColors: string[];
-  dispatchColorState: Dispatch<UpdateColorActions>;
 };
 
 const RelatedColorPalette = ({
   title,
   hexColors,
-  dispatchColorState,
 }: RelatedColorPaletteProps) => {
+  const { dispatchColorState } = useContext(ColorContext);
+
   return (
     <section>
       <h3 className="mb-4">{title}</h3>

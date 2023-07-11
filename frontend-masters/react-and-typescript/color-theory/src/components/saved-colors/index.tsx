@@ -1,11 +1,11 @@
-import { Dispatch, useState } from 'react';
+import { useContext, useState } from 'react';
 import id from 'lodash.uniqueid';
 import AddSavedColor from './add-saved-color';
 import SavedColor from './saved-color';
+import { ColorContext } from '../../lib/color-context';
 
 type SavedColorsProps = {
   hexColor: string;
-  dispatchColorState: Dispatch<UpdateColorActions>;
 };
 
 const saved = [
@@ -13,8 +13,9 @@ const saved = [
   { id: id(), name: 'Blue Fire', hexColor: '#00aadd' },
 ];
 
-const SavedColors = ({ hexColor, dispatchColorState }: SavedColorsProps) => {
+const SavedColors = ({ hexColor }: SavedColorsProps) => {
   const [savedColors, setSavedColors] = useState(saved);
+  const { dispatchColorState } = useContext(ColorContext);
 
   return (
     <section className="flex w-full flex-col gap-4 sm:col-span-2">
