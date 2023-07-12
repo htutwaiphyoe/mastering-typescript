@@ -1,13 +1,13 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ItemsContext } from '../context';
 
 type ItemProps = {
   item: Item;
-  update: (id: string, updates: any) => void;
-  remove: (id: string) => void;
 };
 
-const Item = ({ item, update, remove }: ItemProps) => {
+const Item = ({ item }: ItemProps) => {
+  const { update, remove } = useContext(ItemsContext);
   const [editing, setEditing] = useState(false);
 
   return (

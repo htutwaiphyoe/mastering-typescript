@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { filterItems } from '../lib/items';
 import { toKebabCase } from '../lib/kebab-case';
 import Item from './item';
-import { ItemsContext } from '../context';
 
 type ItemsProps = {
   title: string;
@@ -10,7 +9,6 @@ type ItemsProps = {
 };
 
 const ItemList = ({ title = 'Items', items }: ItemsProps) => {
-  const { update, remove } = useContext(ItemsContext);
   const [filter, setFilter] = useState('');
   const id = toKebabCase(title);
 
@@ -32,7 +30,7 @@ const ItemList = ({ title = 'Items', items }: ItemsProps) => {
       </header>
       <ul className="flex flex-col gap-2">
         {filteredItems.map((item) => (
-          <Item key={item.id} item={item} update={update} remove={remove} />
+          <Item key={item.id} item={item} />
         ))}
       </ul>
       {isEmpty && <p className="text-primary-400">(Nothing to show.)</p>}

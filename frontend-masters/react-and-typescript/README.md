@@ -282,3 +282,19 @@ type Statuses = (typeof status)[number]
 generate type dynamically from value itself
 
 TypeScript make feel comfortable just doing the refactor.
+
+## 19. TypeScript Utilities Methods
+
+[utility-types](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype)
+
+Partial utility type => it takes all the keys in the object, it makes them all optional. It's basically taking everything and dynamically putting a question mark in front of all of them.
+
+Omit, awaited
+
+creating new type based on some other information
+
+```ts
+type Item = {id: string, name: string, packed: boolean}
+type PartialItem = Partial<Item>
+type PartialWithoutIdItem = Omit<PartialItem>
+```
