@@ -267,3 +267,18 @@ so to solve that typescript error,
 
 1. optional type of dispatch
 2. pretend and assume that type is already existed
+
+## 18. Context API Exercise
+
+as const => mark as constant
+
+[const-assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions)
+
+```ts
+const status = ['loading', 'error', 'success']
+type Statuses = (typeof status)[number]
+```
+
+generate type dynamically from value itself
+
+TypeScript make feel comfortable just doing the refactor.
