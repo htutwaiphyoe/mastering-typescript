@@ -365,3 +365,18 @@ can encapsulate with custom hooks for abstraction layer
 access and autocomplete for native element props like input or button pros => ComponentPropsWithoutRef<input>
 
 can use Omit for specific prop to make required
+
+## 25. Polymorphic Components
+
+Mui Box component => as for html element
+
+```ts
+type BoxProps = ComponentPropsWithRef<'div'> & {
+  as: 'div' | 'section' | 'article' | 'p';
+};
+
+const Box = ({ as, children }: BoxProps) => {
+  const TagName = as || 'div';
+  return <TagName>{children}</TagName>;
+};
+```
