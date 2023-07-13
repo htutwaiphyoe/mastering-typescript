@@ -298,3 +298,27 @@ type Item = {id: string, name: string, packed: boolean}
 type PartialItem = Partial<Item>
 type PartialWithoutIdItem = Omit<PartialItem>
 ```
+
+## 20. Generics & Template Literals
+
+Single letter is convention
+
+T in generic => Type
+K in generic => Key
+
+```ts
+type User = {
+  firstName: string;
+  lastName: string;
+  age: number;
+};
+
+type UpdateUser = `update-${keyof User}`;
+
+type Actions<T, K extends keyof T & string> = {
+  type: `update-${K}`;
+  payload: T[K];
+};
+
+type UpdateNameAction = Actions<User, 'age'>;
+```
