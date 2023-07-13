@@ -322,3 +322,32 @@ type Actions<T, K extends keyof T & string> = {
 
 type UpdateNameAction = Actions<User, 'age'>;
 ```
+
+## 21. Generic Type Systems
+
+TypeScript can figure it out on behalf, don't have to tell it what to do.
+
+compiler can confuse jsx and generic. can put comma after generic type
+
+```ts
+type LinkNode<T> = {
+  value: T;
+  next?: LinkNode<T>;
+};
+
+const TextNode: LinkNode<string> = {
+  value: 'Maii',
+  next: {
+    value: 'Kham',
+  },
+};
+
+const createLinkNode = <T>(value: T): LinkNode<T> => {
+  return {
+    value,
+  };
+};
+
+const stringNode = createLinkNode('GG');
+const numberNode = createLinkNode(23);
+```
