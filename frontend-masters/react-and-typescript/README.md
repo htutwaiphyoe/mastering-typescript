@@ -359,3 +359,9 @@ typescript could make a type out of a value, but it couldn't make a value out of
 ## 23. Using a Custom createContext
 
 can encapsulate with custom hooks for abstraction layer
+
+## 24. Auto Complete
+
+access and autocomplete for native element props like input or button pros => ComponentPropsWithoutRef<input>
+
+can use Omit for specific prop to make required
