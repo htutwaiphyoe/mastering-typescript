@@ -355,3 +355,7 @@ const numberNode = createLinkNode(23);
 ## 22. Create Context with Generics
 
 typescript could make a type out of a value, but it couldn't make a value out of a type cuz TypeScript cannot impact the world of JavaScript. It lives in the shadows.
+
+## 23. Using a Custom createContext
+
+can encapsulate with custom hooks for abstraction layer

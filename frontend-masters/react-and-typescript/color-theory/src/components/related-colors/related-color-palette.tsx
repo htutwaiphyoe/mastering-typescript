@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import ColorChangeSwatch from '../shared/color-change-swatch';
-import { ColorContext } from '../../lib/color-context';
+import { useColorContext } from '../../lib/color-context';
 
 type RelatedColorPaletteProps = {
   title: string;
@@ -11,7 +10,7 @@ const RelatedColorPalette = ({
   title,
   hexColors,
 }: RelatedColorPaletteProps) => {
-  const { dispatchColorState } = useContext(ColorContext);
+  const { dispatchColorState } = useColorContext();
 
   return (
     <section>
@@ -22,7 +21,7 @@ const RelatedColorPalette = ({
             <ColorChangeSwatch
               key={hexColor}
               hexColor={hexColor}
-              className="h-full w-full"
+              className="w-full h-full"
               onClick={() =>
                 dispatchColorState({
                   type: 'update-hex-color',

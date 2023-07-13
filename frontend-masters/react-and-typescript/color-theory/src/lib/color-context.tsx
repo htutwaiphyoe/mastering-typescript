@@ -1,14 +1,15 @@
-import { Dispatch, PropsWithChildren, createContext, useReducer } from 'react';
+import { Dispatch, PropsWithChildren, useReducer } from 'react';
 import { colorReducer, initialColorState } from './color-reducer';
+import { createContext } from './create-context';
 
 type ColorContextType = {
   colorState: ColorState;
   dispatchColorState: Dispatch<UpdateColorActions>;
 };
 
-export const ColorContext = createContext<ColorContextType>({
-  colorState: initialColorState,
-} as ColorContextType);
+const [useContext, ContextProvider] = createContext<ColorContextType>();
+
+export const useColorContext = useContext;
 
 export const ColorContextProvider = ({ children }: PropsWithChildren) => {
   const [colorState, dispatchColorState] = useReducer(
@@ -17,8 +18,8 @@ export const ColorContextProvider = ({ children }: PropsWithChildren) => {
   );
 
   return (
-    <ColorContext.Provider value={{ colorState, dispatchColorState }}>
+    <ContextProvider value={{ colorState, dispatchColorState }}>
       {children}
-    </ColorContext.Provider>
+    </ContextProvider>
   );
 };
