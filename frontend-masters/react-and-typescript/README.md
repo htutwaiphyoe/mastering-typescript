@@ -380,3 +380,7 @@ const Box = ({ as, children }: BoxProps) => {
   return <TagName>{children}</TagName>;
 };
 ```
+
+## 26. Wrapping Up
+
+typescript for common component patterns like hoc, render props and custom hooks
