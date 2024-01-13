@@ -59,3 +59,13 @@ structural => all about structure
 Union type => OR => type1 | type2
 
 Intersection type => AND => type1 & type2 => common shared types of both types
+
+## 12. Union Types
+
+type Name = type1 | type2
+
+## 13. Union Type Control Flow
+
+type guard
+
+discriminated unions
