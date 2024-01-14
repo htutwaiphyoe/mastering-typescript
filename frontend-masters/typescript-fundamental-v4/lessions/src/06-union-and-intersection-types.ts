@@ -88,21 +88,20 @@ if (first === "error") {
 }
 
 //* Intersection Types
-/*
-// //? What does Evens & OneThroughFive accept as values?
-// let evenAndLowNumber: Evens & OneThroughFive;
-// evenAndLowNumber = 6 //! Not in OneThroughFive
-// evenAndLowNumber = 3 //! Not in Evens
-// evenAndLowNumber = 4 //✔️ In both sets
 
+// //? What does Evens & OneThroughFive accept as values?
+let evenAndLowNumber: Evens & OneThroughFive;
+evenAndLowNumber = 6; //! Not in OneThroughFive
+evenAndLowNumber = 3; //! Not in Evens
+evenAndLowNumber = 4; //✔️ In both sets
 
 //? What requirements can `Evens & OneThroughFive` meet?
-// let y = 4 as Evens & OneThroughFive;
+let y: Evens & OneThroughFive = 4;
 
-// printEven(y) //✔️ Guaranteed to be even
-// printLowNumber(y) //✔️ Guaranteed to be in {1, 2, 3, 4, 5}
-// printEvenNumberUnder5(y) //✔️ Guaranteed to be in {2, 4}
-// printNumber(y) //✔️ Guaranteed to be a number
+printEven(y); //✔️ Guaranteed to be even
+printLowNumber(y); //✔️ Guaranteed to be in {1, 2, 3, 4, 5}
+printEvenNumberUnder5(y); //✔️ Guaranteed to be in {2, 4}
+printNumber(y); //✔️ Guaranteed to be a number
 
 /**/
 

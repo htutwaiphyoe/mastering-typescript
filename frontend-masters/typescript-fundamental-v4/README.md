@@ -69,3 +69,7 @@ type Name = type1 | type2
 type guard
 
 discriminated unions
+
+## 14. Intersection Types
+
+anything in both sets
