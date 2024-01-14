@@ -21,3 +21,10 @@ type casting => `as Type` => eg. `as const`
 ## 05. Any & Type Casting
 
 any => top-level type => `as any as Date`
+
+## 06. Functions & Return Types
+
+eslint => best practice and code style
+typescript => type checking
+
+always add explicit return type of the function for boundary

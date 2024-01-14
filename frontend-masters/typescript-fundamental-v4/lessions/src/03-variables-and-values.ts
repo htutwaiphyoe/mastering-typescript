@@ -48,12 +48,12 @@ let date4 = "oops" as Date;
 
 //! Function arguments and return values
 
-// function add(a, b) {
-//   return a + b // strings? numbers? a mix?
-// }
+function add(a, b) {
+  return a + b; // strings? numbers? a mix?
+}
 
-// const result = add(3, "4")
-// const p = new Promise(result);
+const result = add(3, "4");
+const p = new Promise(result);
 
 /**/
 
