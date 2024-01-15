@@ -73,3 +73,11 @@ discriminated unions
 ## 14. Intersection Types
 
 anything in both sets
+
+## 15. Type Alias
+
+type Name = value
+
+type alias can hold any types in typescript
+
+type inheritance => type & type
