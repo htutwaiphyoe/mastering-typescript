@@ -81,3 +81,9 @@ type Name = value
 type alias can hold any types in typescript
 
 type inheritance => type & type
+
+## 16. Interface extends & implements
+
+extends => class extends class, interface extends interfaces
+
+implements => interface acts as contract

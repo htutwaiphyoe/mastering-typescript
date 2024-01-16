@@ -63,104 +63,102 @@ newYearsEve.getDescription();
 // //             ^?
 
 //* Interfaces
-/*
-// interface Amount2 {
-//     currency: string
-//     value: number
-// }
 
-// function printAmount2(amt: Amount2) {
-//     amt
-// }
+interface Amount2 {
+  currency: string;
+  value: number;
+}
+
+function printAmount2(amt: Amount2) {
+  amt;
+}
 
 //* Inheritance in interfaces
-/*
+
 // //? `extends` keyword
-// function consumeFood(arg) { }
+function consumeFood(arg: string) {}
 
-// class AnimalThatEats {
-//     eat(food) {
-//         consumeFood(food)
-//     }
-// }
-// class Cat extends AnimalThatEats {
-//     meow() {
-//         return "meow"
-//     }
-// }
+class AnimalThatEats {
+  eat(food: string) {
+    consumeFood(food);
+  }
+}
+class Cat extends AnimalThatEats {
+  meow() {
+    return "meow";
+  }
+}
 
-// const c = new Cat()
-// c.eat
-// c.meow()
+const c = new Cat();
+c.eat("fish");
+c.meow();
 
-/*
-// interface Animal {
-//     isAlive(): boolean
-// }
-// interface Mammal extends Animal {
-//     getFurOrHairColor(): string
-// }
-// interface Hamster extends Mammal {
-//     squeak(): string
-// }
-// function careForHamster(h: Hamster) {
-//     h.getFurOrHairColor()
-//     h.squeak()
-//     //   ^|
-// }
-
+interface Animal {
+  isAlive(): boolean;
+}
+interface Mammal extends Animal {
+  getFurOrHairColor(): string;
+}
+interface Hamster extends Mammal {
+  squeak(): string;
+}
+function careForHamster(h: Hamster) {
+  h.getFurOrHairColor();
+  h.squeak();
+  //   ^|
+}
 
 //? `implements` keyword
-/*
-// interface AnimalLike {
-//     eat(food): void
-// }
 
-// class Dog implements AnimalLike {
-//     bark() {
-//         return "woof"
-//     }
-// }
-/*
-// class LivingOrganism { //? A base class
-//     isAlive() {
-//         return true
-//     }
-// }
-// interface CanBark { //? Another interface
-//     bark(): string
-// }
-// class Dog2
-//     extends LivingOrganism
-//     implements AnimalLike, CanBark {
-//     bark() {
-//         return "woof"
-//     }
-//     eat(food) {
-//         consumeFood(food)
-//     }
-// }
+interface AnimalLike {
+  eat(food: string): void;
+}
+
+class Dog implements AnimalLike {
+  eat(food: string): void {}
+  bark() {
+    return "woof";
+  }
+}
+
+class LivingOrganism {
+  //? A base class
+  isAlive() {
+    return true;
+  }
+}
+interface CanBark {
+  bark(): string;
+}
+class Dog2 extends LivingOrganism implements Animal, AnimalLike, CanBark {
+  bark() {
+    return "woof";
+  }
+  eat(food: string) {
+    consumeFood(food);
+  }
+}
 
 //? Implements sometimes works with type aliases
-/*
-// type CanJump = {
-//     jumpToHeight(): number
-//         // | [number, number]
-// }
-// class Dog3 implements CanJump {
-//     jumpToHeight() {
-//         return 1.7
-//     }
-//     eat(food) {
-//         consumeFood(food)
-//     }
-// }
 
-// type CanBark =
-//   | number
-//   | {
-//       bark(): string
-//     }
+type CanJump = {
+  jumpToHeight(): number;
+  // | [number, number]
+};
+class Dog3 implements CanJump {
+  jumpToHeight() {
+    return 1.7;
+  }
+  eat(food: string) {
+    consumeFood(food);
+  }
+}
+
+type CanBark2 =
+  | number
+  | {
+      bark(): string;
+    };
 
 //* Open interfaces
 
