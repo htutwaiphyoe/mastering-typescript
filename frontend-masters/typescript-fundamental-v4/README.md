@@ -28,3 +28,7 @@ eslint => best practice and code style
 typescript => type checking
 
 always add explicit return type of the function for boundary
+
+## 07. Objects & Property Types
+
+optional => field?: number

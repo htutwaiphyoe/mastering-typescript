@@ -1,54 +1,65 @@
 //* Objects
 
 let car: {
-  make: string
-  model: string
-  year: number
+  make: string;
+  model: string;
+  year: number;
+} = {
+  make: "2020",
+  model: "Lamborghini",
+  year: 2023,
+};
+
+//? A function that prints info about a car to stdout
+function printCar(car: {
+  make: string;
+  model: string;
+  year: number;
+  chargeVoltage?: number;
+}) {
+  let str = `${car.make} ${car.model} (${car.year})`;
+  if (typeof car.chargeVoltage !== "undefined")
+    str += `// ${car.chargeVoltage}v`;
+  console.log(car);
 }
 
-/*
-//? A function that prints info about a car to stdout
-// function printCar(car: {
-//     make: string
-//     model: string
-//     year: number
-// }) {
-//     console.log(`${car.make} ${car.model} (${car.year})`)
-// }
+printCar(car);
 
-// printCar(car)
-
-/*
 //* Optional properties
 //? Insert into function printCar
-// let str = `${car.make} ${car.model} (${car.year})`
-// car.chargeVoltage
-// if (typeof car.chargeVoltage !== "undefined")
-//   str += `// ${car.chargeVoltage}v`
 
-/*
-// printCar({ //? original fn works
-//     make: "Honda",
-//     model: "Accord",
-//     year: 2017,
-// })
+printCar({
+  //? original fn works
+  make: "Honda",
+  model: "Accord",
+  year: 2017,
+});
 
-// printCar({ //? optional property works too!
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     chargeVoltage: 220,
-// })
+printCar({
+  //? optional property works too!
+  make: "Tesla",
+  model: "Model 3",
+  year: 2020,
+  chargeVoltage: 220,
+});
 
-/*
 //* Excess property checking
 
-// printCar({
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     color: "RED", //? EXTRA PROPERTY
-// })
+printCar({
+  make: "Tesla",
+  model: "Model 3",
+  year: 2020,
+  color: "RED", //? EXTRA PROPERTY
+});
+
+printCar({
+  ...{
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+    color: "RED", //? EXTRA PROPERTY
+  },
+});
 
 /*
 //* Index signatures
@@ -128,4 +139,4 @@ let car: {
 
 /**/
 
-export default {}
+export default {};
