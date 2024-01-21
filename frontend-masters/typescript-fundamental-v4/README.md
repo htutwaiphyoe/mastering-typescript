@@ -32,3 +32,11 @@ always add explicit return type of the function for boundary
 ## 07. Objects & Property Types
 
 optional => field?: number
+
+## 08. Index Signatures
+
+```bash
+{[key: string]: string}
+```
+
+. for known property, [] for index
