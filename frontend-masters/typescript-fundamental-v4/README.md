@@ -87,3 +87,9 @@ type inheritance => type & type
 extends => class extends class, interface extends interfaces
 
 implements => interface acts as contract
+
+## 17. Open Interfaces
+
+interfaces can be redeclare
+
+can add property in global interface
