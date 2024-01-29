@@ -40,3 +40,11 @@ optional => field?: number
 ```
 
 . for known property, [] for index
+
+## 09. Array Types, Tuples & ReadOnly
+
+array type => type[]
+
+readonly => immutable array
+
+mulitple dimension => type[][]
