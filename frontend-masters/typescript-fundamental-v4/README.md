@@ -93,3 +93,7 @@ implements => interface acts as contract
 interfaces can be redeclare
 
 can add property in global interface
+
+## 18. Recursive Types
+
+type Name = Name
