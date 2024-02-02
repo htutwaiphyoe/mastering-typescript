@@ -97,3 +97,15 @@ can add property in global interface
 ## 18. Recursive Types
 
 type Name = Name
+
+## 19. JSON Type
+
+```ts
+type JSONPrimitive = number | string | boolean | null;
+
+type JSONObject = { [key: string]: JSONValue };
+
+type JSONArray = JSONValue[];
+
+type JSONValue = JSONPrimitive | JSONObject | JSONArray;
+```
