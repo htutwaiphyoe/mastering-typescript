@@ -13,3 +13,7 @@ Mike North
 ## 03. Compiling TypeScript with TSC
 
 index.js + index.d.ts = index.ts
+
+## 04. Variable Declaration & Inferences
+
+type casting => `as Type` => `as const`
