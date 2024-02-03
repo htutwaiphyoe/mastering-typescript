@@ -34,25 +34,19 @@ setTimeout(() => {
 }, RANDOM_WAIT_TIME);
 
 //* Type Casting
-/*
-let frontEndMastersFounding = new Date("Jan 1, 2012")
-let date1 = frontEndMastersFounding
+
+let frontEndMastersFounding = new Date("Jan 1, 2012");
+let date1 = frontEndMastersFounding;
 let date2 = frontEndMastersFounding as any;
 
-/*
 const humid3 = 79 as number; //✔️ is 79 a number? If so, this is safe!
 
+let date3 = "oops" as any as Date; //! TypeScript thinks this is a Date now, but it's really a string
+date3.toISOString(); //! what do we think will happen when we run this? 💥
 
-/*
-// let date3 = "oops" as any as Date //! TypeScript thinks this is a Date now, but it's really a string
-// date3.toISOString() //! what do we think will happen when we run this? 💥
-
-/*
-// let date4 = "oops" as Date
-
+let date4 = "oops" as Date;
 
 //! Function arguments and return values
-
 
 // function add(a, b) {
 //   return a + b // strings? numbers? a mix?

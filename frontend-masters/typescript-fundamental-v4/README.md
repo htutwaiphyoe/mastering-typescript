@@ -16,4 +16,8 @@ index.js + index.d.ts = index.ts
 
 ## 04. Variable Declaration & Inferences
 
-type casting => `as Type` => `as const`
+type casting => `as Type` => eg. `as const`
+
+## 05. Any & Type Casting
+
+any => top-level type => `as any as Date`
