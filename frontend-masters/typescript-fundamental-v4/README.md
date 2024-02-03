@@ -47,4 +47,9 @@ array type => type[]
 
 readonly => immutable array
 
-mulitple dimension => type[][]
+multiple dimension => type[][]
+
+## 10. Nominal vs Structural Type System
+
+nominal => all about names
+structural => all about structure
