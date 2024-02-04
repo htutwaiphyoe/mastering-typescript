@@ -53,3 +53,9 @@ multiple dimension => type[][]
 
 nominal => all about names
 structural => all about structure
+
+## 11. Conceptualizing Union & Intersection Types
+
+Union type => OR => type1 | type2
+
+Intersection type => AND => type1 & type2 => common shared types of both types
