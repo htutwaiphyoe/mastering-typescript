@@ -114,3 +114,13 @@ type JSONValue = JSONPrimitive | JSONObject | JSONArray;
 
 keyof => object.key for types
 typeof => type of values
+
+## 21. Type Registry
+
+```ts
+declare module path{
+    export interface Name{
+        type
+    }
+}
+```
