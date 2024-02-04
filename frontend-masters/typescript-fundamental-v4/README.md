@@ -109,3 +109,8 @@ type JSONArray = JSONValue[];
 
 type JSONValue = JSONPrimitive | JSONObject | JSONArray;
 ```
+
+## 20. Type Queries
+
+keyof => object.key for types
+typeof => type of values
