@@ -7,3 +7,5 @@ Mike North
 focus on utility types
 
 [intermediate-v2](https://www.typescript-training.com/course/intermediate-v2)
+
+## 02. Course Overview
