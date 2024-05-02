@@ -1,9 +1,12 @@
 # TypeScript
 
-Learning Repository for TypeScript
+Becoming TypeScript Wizard
 
 ## Table of content
 
--   getting-started
--   type-system
--   type annotations and inference
+- Udemy
+  - Stephen Grider
+- Frontend Masters
+  - Fundamental-v4
+- Total TypeScript
+- Turing
