@@ -60,40 +60,36 @@ const y: is_a_value = {}; //! Wrong position for value
 const yy: is_a_namespace = {}; // ✔️ Namespace can't be used as a type
 
 //* What's the point of `namespace`?
-/*
-// // a `fetch` kind of function
-// // @ts-ignore
-// $.ajax({
-//   url: '/api/getWeather',
-//   data: {
-//     zipcode: 97201,
-//   },
-//   success: function (result) {
-//     // @ts-ignore
-//     $('#weather-temp')[0].innerHTML =
-//       '<strong>' + result + '</strong> degrees'
-//   },
-// })
-// // a `document.querySelectorAll` kind of function
-// // @ts-ignore
-// $('h1.title').forEach((node) => {
-//   node.tagName // "h1"
-//   //    ^?
-// })
 
-/*
-// function $(selector: string): NodeListOf<Element> {
-//   return document.querySelectorAll(selector)
-// }
-// namespace $ {
-//   export function ajax(arg: {
-//     url: string
-//     data: any
-//     success: (response: any) => void
-//   }): Promise<any> {
-//     return Promise.resolve()
-//   }
-// }
+// // a `fetch` kind of function
+$.ajax({
+  url: "/api/getWeather",
+  data: {
+    zipcode: 97201,
+  },
+  success: function (result) {
+    // @ts-ignore
+    $("#weather-temp")[0].innerHTML = "<strong>" + result + "</strong> degrees";
+  },
+});
+// a `document.querySelectorAll` kind of function
+$("h1.title").forEach((node) => {
+  node.tagName; // "h1"
+  //    ^?
+});
+
+function $(selector: string): NodeListOf<Element> {
+  return document.querySelectorAll(selector);
+}
+namespace $ {
+  export function ajax(arg: {
+    url: string;
+    data: any;
+    success: (response: any) => void;
+  }): Promise<any> {
+    return Promise.resolve();
+  }
+}
 
 //* A look back on classes
 /*
