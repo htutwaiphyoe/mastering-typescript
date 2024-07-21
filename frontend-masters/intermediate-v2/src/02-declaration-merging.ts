@@ -36,29 +36,28 @@ namespace Fruit {
 }
 
 //* How to tell what's on an indentifier
-/*
-// const is_a_value = 4
-// type is_a_type = {}
-// namespace is_a_namespace {
-//   const foo = 17
-// }
+
+const is_a_value = 4;
+type is_a_type = {};
+namespace is_a_namespace {
+  const foo = 17;
+}
 
 // // how to test for a (value | namespace)
-// const x = is_a_value // the value position (RHS of =).
+const x = is_a_value; // the value position (RHS of =).
 // //           ^?
 
 // // how to test for a type
-// const z: is_a_type = {} // the type position (LHS of =).
+const z: is_a_type = {}; // the type position (LHS of =).
 // //         ^?
 // // how to test for a namespace (hover over is_a_namespace symbol)
-// is_a_namespace
+is_a_namespace;
 
-/*
-// const x_2 = is_a_type //! Wrong position for type
-// const x_3 = is_a_namespace //✔️ Namespace can be used as a value
+const x_2 = is_a_type; //! Wrong position for type
+const x_3 = is_a_namespace; //✔️ Namespace can be used as a value
 // // how to test for a type
-// const y: is_a_value = {} //! Wrong position for value
-// const yy: is_a_namespace = {} // ✔️ Namespace can't be used as a type
+const y: is_a_value = {}; //! Wrong position for value
+const yy: is_a_namespace = {}; // ✔️ Namespace can't be used as a type
 
 //* What's the point of `namespace`?
 /*

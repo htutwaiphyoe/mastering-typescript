@@ -22,3 +22,11 @@ focus on utility types
 8. Mapped Types
 9. Type registry: revisited
 10. Variance over type params
+
+## 03. Identifiers
+
+1. Declaration Merging
+
+In order to truly understand how types and values "stack" on each other, we'll first tackle the concept of declaration merging. Often when people grasp how TypeScript handles this, they never look at the language the same way again
+
+Declaration Merging => Single Identifier with stack of different types
