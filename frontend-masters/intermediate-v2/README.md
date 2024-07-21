@@ -25,7 +25,7 @@ focus on utility types
 
 ## 03. Identifiers
 
-1. Declaration Merging
+### Declaration Merging
 
 In order to truly understand how types and values "stack" on each other, we'll first tackle the concept of declaration merging. Often when people grasp how TypeScript handles this, they never look at the language the same way again
 
@@ -45,3 +45,14 @@ classes are both value and type
 
 Object.freeze => readonly object in both compile time and runtime
 readonly type => readonly in TS, can write in runtime
+
+## 06. Top Types
+
+### Top and bottom types
+
+Top types can be anything, bottom types can't be anything. We will also look at three "extreme types" in TypeScript: any, unknown and never.
+
+extreme types => accept anything/almost anything and nothing/almost nothing
+
+any => disable type checking => accept anything => console.log(any)
+unknown => accept anything but need type narrowing/guard before operation

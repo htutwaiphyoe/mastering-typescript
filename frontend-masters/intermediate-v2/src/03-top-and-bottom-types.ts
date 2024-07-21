@@ -1,38 +1,37 @@
 //* any
-let flexible: any = 4
-flexible = 'Download some more ram'
-flexible = window.document
-flexible = setTimeout
+let flexible: any = 4;
+flexible = "Download some more ram";
+flexible = window.document;
+flexible = setTimeout;
 
-flexible.it.is.possible.to.access.any.deep.property
+flexible.it.is.possible.to.access.any.deep.property;
 
-console.log(window, Promise, setTimeout, 'foo')
+console.log(window, Promise, setTimeout, "foo");
 
 //* unknown
-/*
-// let flexible2: unknown = 4
-// flexible2 = 'Download some more ram'
-// flexible2 = window.document
-// flexible2 = setTimeout
+let flexible2: unknown = 4;
+flexible2 = "Download some more ram";
+flexible2 = window.document;
+flexible2 = setTimeout;
 
-// let myUnknown: unknown = 14
-// myUnknown.it.is.possible.to.access.any.deep.property //✔️ Fails as it should
+let myUnknown: unknown = 14;
+myUnknown.it.is.possible.to.access.any.deep.property; //✔️ Fails as it should
 
-// // This code runs for myUnknown = { all possible values }
-// if (typeof myUnknown === 'string') {
-//   // This code runs for myUnknown = { all strings }
-//   myUnknown
-//   //     ^?
-// } else if (typeof myUnknown === 'number') {
-//   // This code runs for myUnknown = { all numbers }
-//   myUnknown
-//   //     ^?
-// } else {
-//   myUnknown
-//   // ^?
-//   // this would run for "the leftovers"
-//   //       myUnknown = { anything except string or numbers }
-// }
+// This code runs for myUnknown = { all possible values }
+if (typeof myUnknown === "string") {
+  // This code runs for myUnknown = { all strings }
+  myUnknown;
+  //     ^?
+} else if (typeof myUnknown === "number") {
+  // This code runs for myUnknown = { all numbers }
+  myUnknown;
+  //     ^?
+} else {
+  myUnknown;
+  // ^?
+  // this would run for "the leftovers"
+  //       myUnknown = { anything except string or numbers }
+}
 
 //* Practical use of top types
 /*
@@ -171,5 +170,4 @@ console.log(window, Promise, setTimeout, 'foo')
 
 /**/
 
-
-export default {}
+export default {};
