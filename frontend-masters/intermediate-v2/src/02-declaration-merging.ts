@@ -92,14 +92,21 @@ namespace $ {
 }
 
 //* A look back on classes
-/*
+class Fruit2 {
+  name?: string;
+  color?: string;
+  mass?: number;
+  static createBanana() {
+    return { name: "banana", color: "green", mass: 188 };
+  }
+}
 // // how to test for a value
-// const valueTest = Fruit // Fruit is a value!
-// valueTest.createBanana
+const valueTest = Fruit2; // Fruit2 is a value!
+valueTest.createBanana;
 
 // // how to test for a type
-// let typeTest: Fruit = {} as any // Fruit is a type!
-// typeTest.color
+let typeTest: Fruit2 = {} as any; // Fruit2 is a type!
+typeTest.color;
 
 /**/
-export { banana, Fruit };
+export { banana, Fruit, Fruit2 };
