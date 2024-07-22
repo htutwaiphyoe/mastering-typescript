@@ -62,3 +62,17 @@ unknown => accept anything but need type narrowing/guard before operation
 unknown for catch error variables
 
 useUnknownInCatchVariables => tsconfig
+
+## 08. object & Empty Objects
+
+almost top types
+
+object => all possible values except primitives
+
+evidence-based approach
+
+strictNullChecks => tsconfig
+
+{} => empty object type => all possible values except null and undefined
+
+{} type is useful to remove nullability => NonNullable

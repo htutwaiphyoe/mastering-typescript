@@ -58,46 +58,47 @@ try {
 }
 
 //* Almost top type: object
-/*
-// let val: object = { status: 'ok' }
-// val = 'foo' //! string is not an object
-// val = null //! null is not an object
-// val = () => 'ok' //✔️ functions are objects
 
-// // The type of this value cannot be modeled by an interface
-// let response: //     ^?
-// { success: string; data: unknown } | { error: string; code: number } =
-//   { success: 'ok', data: [] }
+let val: object = { status: "ok" };
+val = "foo"; //! string is not an object
+val = null; //! null is not an object
+val = () => "ok"; //✔️ functions are objects
 
-// val = response
+// The type of this value cannot be modeled by an interface
+let response: //     ^?
+{ success: string; data: unknown } | { error: string; code: number } = {
+  success: "ok",
+  data: [],
+};
+
+val = response;
 
 //* Almost top type: {}
-/*
-// const stringOrNumber: string | number = 4
-// let nullableString: string | null = null
-// const myObj: {
-//   a?: number
-//   b: string
-// } = { b: 'foo' }
 
-// let val2: {} = 4
-// val2 = 'abc'
-// val2 = new Date()
-// val2 = stringOrNumber
-// val2 = nullableString
-// val2 = myObj.a
+const stringOrNumber: string | number = 4;
+let nullableString: string | null = null;
+const myObj: {
+  a?: number;
+  b: string;
+} = { b: "foo" };
 
-// /*
-// //? Adding in null and undefined, and we're back to a top type
-// let withoutUndefined: {} | null = 37
-// let withUndefined: {} | null | undefined = 38
-// let anUnknown: unknown = '42'
+let val2: {} = 4;
+val2 = "abc";
+val2 = new Date();
+val2 = stringOrNumber;
+val2 = nullableString;
+val2 = myObj.a;
 
-// withoutUndefined = anUnknown //! unknown is not assignable to {}
-// withUndefined = anUnknown //✔️ OK
+//? Adding in null and undefined, and we're back to a top type
+let withoutUndefined: {} | null = 37;
+let withUndefined: {} | null | undefined = 38;
+let anUnknown: unknown = "42";
 
-// type NullableStringOrNumber = string | number | null | undefined
-// type StringOrNumber = NullableStringOrNumber & {} // ✔️ remove the null and undefined
+withoutUndefined = anUnknown; //! unknown is not assignable to {}
+withUndefined = anUnknown; //✔️ OK
+
+type NullableStringOrNumber = string | number | null | undefined;
+type StringOrNumber = NullableStringOrNumber & {}; // ✔️ remove the null and undefined
 
 //* Bottom type: never
 /*
