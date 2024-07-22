@@ -56,3 +56,9 @@ extreme types => accept anything/almost anything and nothing/almost nothing
 
 any => disable type checking => accept anything => console.log(any)
 unknown => accept anything but need type narrowing/guard before operation
+
+## 07. Practical Uses of Top Types
+
+unknown for catch error variables
+
+useUnknownInCatchVariables => tsconfig
