@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.json",
+    "references": [{ "name": "chat-stdlib", "path": ".." }],
+    "compilerOptions": {
+        "types": ["jest"],
+        "rootDir": "..",
+        "paths": {
+            "chat-stdlib": ["../dist/chat-stdlib-beta.d.ts"],
+        }
+    },
+    "include": ["."]
+}

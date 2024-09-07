@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "allowJs": true,
+    "checkJs": true,
+    "module": "commonjs",
+    "noEmit": true,
+    "outDir": "dist",
+    "declaration": true,
+    "jsx": "react",
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    // "noImplicitAny": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "*": ["types/*"],
+      "chat-stdlib": ["../chat-stdlib/dist/chat-stdlib-beta.d.ts"],
+    }
+  },
+  "include": ["src", "tests", "types", ".eslintrc.js", "jest.config.js"],
+}

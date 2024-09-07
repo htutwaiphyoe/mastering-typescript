@@ -1,15 +1,15 @@
 //* Recall: index signature
 
 type Fruit = {
-  name: string
-  color: string
-  mass: number
-}
+  name: string;
+  color: string;
+  mass: number;
+};
 
-type Dict<T> = { [k: string]: T | undefined } // <- index signature
+type Dict<T> = { [k: string]: T | undefined }; // <- index signature
 
-const fruitCatalog: Dict<Fruit> = {}
-fruitCatalog.apple
+const fruitCatalog: Dict<Fruit> = {};
+fruitCatalog.apple;
 
 //* Our first mapped type
 /*
@@ -166,4 +166,4 @@ fruitCatalog.apple
 // // type ValueFilteredDoc = Pick<Document, RelevantDocumentKeys>
 
 /**/
-export default {}
+export default {};
