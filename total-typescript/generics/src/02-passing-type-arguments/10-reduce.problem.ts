@@ -10,9 +10,9 @@ const array = [
   },
 ];
 
-const obj = array.reduce((accum, item) => {
-  accum[item.name] = item;
-  return accum;
+const obj = array.reduce<Record<string, { name: string }>>((acc, item) => {
+  acc[item.name] = item;
+  return acc;
 }, {});
 
 it("Should resolve to an object where name is the key", () => {
