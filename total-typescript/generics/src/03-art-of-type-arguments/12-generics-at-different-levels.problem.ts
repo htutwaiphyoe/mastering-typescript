@@ -1,9 +1,24 @@
 import { expect, it, describe } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const getHomePageFeatureFlags = (
-  config: unknown,
-  override: (flags: unknown) => unknown
+type Configs<T> = {
+  apiEndpoint: string;
+  apiVersion: string;
+  apiKey: string;
+  rawConfig: {
+    featureFlags: {
+      homePage: T;
+      loginPage: {
+        showCaptcha: boolean;
+        showConfirmPassword: boolean;
+      };
+    };
+  };
+};
+
+export const getHomePageFeatureFlags = <T>(
+  config: Configs<T>,
+  override: (flags: T) => T
 ) => {
   return override(config.rawConfig.featureFlags.homePage);
 };
@@ -38,7 +53,7 @@ describe("getHomePageFeatureFlags", () => {
     });
 
     type tests = [
-      Expect<Equal<typeof flags, { showBanner: boolean; showLogOut: boolean }>>
+      Expect<Equal<typeof flags, { showBanner: boolean; showLogOut: boolean }>>,
     ];
   });
 
@@ -54,7 +69,7 @@ describe("getHomePageFeatureFlags", () => {
     });
 
     type tests = [
-      Expect<Equal<typeof flags, { showBanner: boolean; showLogOut: boolean }>>
+      Expect<Equal<typeof flags, { showBanner: boolean; showLogOut: boolean }>>,
     ];
   });
 });
