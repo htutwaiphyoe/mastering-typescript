@@ -5,9 +5,13 @@ import { Equal, Expect } from "../helpers/type-utils";
  * This time, let's try and solve this one
  * with function overloads too!
  */
-export const youSayGoodbyeISayHello = (greeting: "goodbye" | "hello") => {
+export function youSayGoodbyeISayHello(greeting: "goodbye"): "hello";
+export function youSayGoodbyeISayHello(greeting: "hello"): "goodbye";
+export function youSayGoodbyeISayHello(
+  greeting: "hello" | "goodbye"
+): "hello" | "goodbye" {
   return greeting === "goodbye" ? "hello" : "goodbye";
-};
+}
 
 it("Should return goodbye when hello is passed in", () => {
   const result = youSayGoodbyeISayHello("hello");
