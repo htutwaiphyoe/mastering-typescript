@@ -3,10 +3,18 @@ import { expect, it } from "vitest";
 type GetParamKeys<TTranslation extends string> = TTranslation extends ""
   ? []
   : TTranslation extends `${string}{${infer Param}}${infer Tail}`
-  ? [Param, ...GetParamKeys<Tail>]
-  : [];
+    ? [Param, ...GetParamKeys<Tail>]
+    : [];
 
-const translate = (translations: unknown, key: unknown, ...args: unknown[]) => {
+const translate = <
+  T extends Record<string, string>,
+  K extends keyof T,
+  P extends GetParamKeys<T[K]>,
+>(
+  translations: T,
+  key: K,
+  ...args: P extends [] ? [] : [params: Record<P[number], string>]
+) => {
   const translation = translations[key];
   const params: any = args[0] || {};
 
