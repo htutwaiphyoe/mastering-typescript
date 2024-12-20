@@ -1,17 +1,27 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const compose =
-  (...funcs: Array<(input: any) => any>) =>
-  (input: any) => {
-    return funcs.reduce((acc, fn) => fn(acc), input);
+export function compose<T1, T2>(fn1: (input: T1) => T2): (input: T1) => T2;
+export function compose<T1, T2, T3>(
+  fn1: (input: T1) => T2,
+  fn2: (input: T2) => T3
+): (input: T1) => T3;
+export function compose<T1, T2, T3, T4>(
+  fn1: (input: T1) => T2,
+  fn2: (input: T2) => T3,
+  fn3: (input: T3) => T4
+): (input: T1) => T4;
+export function compose(...funcs: Array<(input: any) => any>) {
+  return function (input: number) {
+    return funcs.reduceRight((acc, func) => func(acc), input);
   };
+}
 
-const addOne = (num: number) => {
-  return num + 1;
-};
+const addOne = (num: number) => num + 1;
 
-const addTwoAndStringify = compose(addOne, addOne, String);
+const stringify = (num: any) => num + "";
+
+const addTwoAndStringify = compose(addOne, addOne, stringify);
 
 it("Should compose multiple functions together", () => {
   const result = addTwoAndStringify(4);
@@ -27,6 +37,6 @@ it("Should error when the input to a function is not typed correctly", () => {
     // a function that returns a string!
     // @ts-expect-error
     String,
-    addOne,
+    addOne
   );
 });
