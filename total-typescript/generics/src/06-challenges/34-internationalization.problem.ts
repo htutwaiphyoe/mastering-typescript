@@ -1,27 +1,25 @@
 import { expect, it } from "vitest";
 
-type GetParamKeys<TTranslation extends string> = TTranslation extends ""
+type Param<Value extends string> = Value extends ""
   ? []
-  : TTranslation extends `${string}{${infer Param}}${infer Tail}`
-    ? [Param, ...GetParamKeys<Tail>]
+  : Value extends `${string}{${infer Key}}${infer Rest}`
+    ? [Key, ...Param<Rest>]
     : [];
 
 const translate = <
-  T extends Record<string, string>,
-  K extends keyof T,
-  P extends GetParamKeys<T[K]>,
+  Obj extends Record<string, string>,
+  Key extends keyof Obj,
+  Params extends Param<Obj[Key]>,
 >(
-  translations: T,
-  key: K,
-  ...args: P extends [] ? [] : [params: Record<P[number], string>]
+  translations: Obj,
+  key: Key,
+  ...args: Params extends [] ? [] : [params: Record<Params[number], string>]
 ) => {
   const translation = translations[key];
   const params: any = args[0] || {};
 
   return translation.replace(/{(\w+)}/g, (_, key) => params[key]);
 };
-
-// TESTS
 
 const translations = {
   title: "Hello, {name}!",
