@@ -8,7 +8,7 @@ interface Values {
 
 type ValuesAsUnionOfTuples = {
   [K in keyof Values]: [K, Values[K]];
-};
+}[keyof Values];
 
 type tests = [
   Expect<
@@ -16,5 +16,5 @@ type tests = [
       ValuesAsUnionOfTuples,
       ["email", string] | ["firstName", string] | ["lastName", string]
     >
-  >
+  >,
 ];
