@@ -15,7 +15,7 @@ type Fruit =
     };
 
 type TransformedFruit = {
-  [K in Fruit as K["name"]]: `${K["name"]}:${K["color"]}`;
+  [T in Fruit as T["name"]]: `${T["name"]}:${T["color"]}`;
 }[Fruit["name"]];
 
 type tests = [
