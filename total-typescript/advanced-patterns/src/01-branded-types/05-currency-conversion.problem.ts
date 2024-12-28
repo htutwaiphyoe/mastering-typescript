@@ -1,6 +1,10 @@
 import { describe, it } from "vitest";
 import { Brand } from "../helpers/Brand";
 
+type ConvertedAmount = Brand<number, "ConvertedAmount">;
+
+type AuthorizedUser = Brand<User, "AuthorizedUser">;
+
 interface User {
   id: string;
   name: string;
@@ -12,21 +16,24 @@ interface User {
 const getConversionRateFromApi = async (
   amount: number,
   from: string,
-  to: string,
+  to: string
 ) => {
-  return Promise.resolve(amount * 0.82);
+  return Promise.resolve((amount * 0.82) as ConvertedAmount);
 };
 
-// Mocks a function which actually performs the conversion
-const performConversion = async (user: User, to: string, amount: number) => {};
-
-const ensureUserCanConvert = (user: User, amount: number): User => {
+const ensureUserCanConvert = (user: User, amount: ConvertedAmount) => {
   if (user.maxConversionAmount < amount) {
     throw new Error("User cannot convert currency");
   }
-
-  return user;
+  return user as AuthorizedUser;
 };
+
+// Mocks a function which actually performs the conversion
+const performConversion = async (
+  user: AuthorizedUser,
+  to: string,
+  amount: ConvertedAmount
+) => {};
 
 describe("Possible implementations", () => {
   it("Should error if you do not authorize the user first", () => {
@@ -34,7 +41,7 @@ describe("Possible implementations", () => {
       user: User,
       from: string,
       to: string,
-      amount: number,
+      amount: number
     ) => {
       const convertedAmount = await getConversionRateFromApi(amount, from, to);
 
@@ -48,7 +55,7 @@ describe("Possible implementations", () => {
       user: User,
       from: string,
       to: string,
-      amount: number,
+      amount: number
     ) => {
       // @ts-expect-error
       const authorizedUser = ensureUserCanConvert(user, amount);
@@ -63,7 +70,7 @@ describe("Possible implementations", () => {
       user: User,
       from: string,
       to: string,
-      amount: number,
+      amount: number
     ) => {
       const convertedAmount = await getConversionRateFromApi(amount, from, to);
       const authorizedUser = ensureUserCanConvert(user, convertedAmount);
