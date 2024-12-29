@@ -10,6 +10,12 @@ import { Equal, Expect } from "../helpers/type-utils";
  * interface to add a makeGreeting function
  */
 
+declare global {
+  interface Window {
+    makeGreeting: () => string;
+  }
+}
+
 window.makeGreeting = () => "Hello, world!";
 
 it("Should let you call makeGreeting from the window object", () => {
