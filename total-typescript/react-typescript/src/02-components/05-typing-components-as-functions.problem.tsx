@@ -5,16 +5,12 @@ interface Props {
 }
 
 /* @ts-expect-error */
-export const Button = (props: Props) => {
+export const Button: React.FC<Props> = (props: Props) => {
   return {
     ohDear: "123",
   };
 };
 
 const Parent = () => {
-  return (
-    <>
-      <Button className="my-class"></Button>
-    </>
-  );
+  return <Button className="my-class"></Button>;
 };

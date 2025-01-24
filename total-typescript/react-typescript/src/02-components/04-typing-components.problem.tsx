@@ -4,8 +4,8 @@ type ButtonProps = {
   className: string;
 };
 
-export const Button = (props: ButtonProps) => {
-  return <button className={props.className}></button>;
+export const Button = ({ className }: ButtonProps) => {
+  return <button className={className}></button>;
 };
 
 const Parent = () => {
