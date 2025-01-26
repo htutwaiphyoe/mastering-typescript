@@ -2,8 +2,9 @@ type Icon = "home" | "settings" | "about";
 type ButtonVariant = "primary" | "secondary" | "tertiary";
 
 // How do we refactor this to make it DRY?
-type LooseIcon = Icon | (string & {});
-type LooseButtonVariant = ButtonVariant | (string & {});
+type Loose<T> = T | (string & {});
+type LooseIcon = Loose<Icon>;
+type LooseButtonVariant = Loose<ButtonVariant>;
 
 export const icons: LooseIcon[] = [
   "home",
