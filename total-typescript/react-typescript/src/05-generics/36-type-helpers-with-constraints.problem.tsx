@@ -1,8 +1,10 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type AllOrNothing<T> = T | ToUndefinedObject<T>;
+type AllOrNothing<T extends Record<string, unknown>> = T | ToUndefinedObject<T>;
 
-type ToUndefinedObject<T> = Partial<Record<keyof T, undefined>>;
+type ToUndefinedObject<T extends Record<string, unknown>> = Partial<
+  Record<keyof T, undefined>
+>;
 
 /**
  * There's a problem with our AllOrNothing type. It's letting
@@ -12,7 +14,7 @@ type ToUndefinedObject<T> = Partial<Record<keyof T, undefined>>;
 
 type tests = [
   // @ts-expect-error
-  AllOrNothing<string>,
+  AllOrNothing<string[]>,
   // @ts-expect-error
   AllOrNothing<number>,
   // @ts-expect-error
