@@ -2,22 +2,24 @@ import { createUser } from "fake-external-lib";
 import { useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-type Mutation = (...args: any[]) => Promise<any>;
+type Mutation<T extends any[], V> = (...args: T) => Promise<V>;
 
-interface UseMutationReturn {
-  mutate: Mutation;
+interface UseMutationReturn<T extends any[], V> {
+  mutate: Mutation<T, V>;
   isLoading: boolean;
 }
 
-interface UseMutationOptions {
-  mutation: Mutation;
+interface UseMutationOptions<T extends any[], V> {
+  mutation: Mutation<T, V>;
 }
 
-export const useMutation = (opts: UseMutationOptions): UseMutationReturn => {
+export const useMutation = <T extends any[], V>(
+  opts: UseMutationOptions<T, V>
+): UseMutationReturn<T, V> => {
   const [isLoading, setIsLoading] = useState(false);
 
   return {
-    mutate: async (...args) => {
+    mutate: async (...args: T) => {
       setIsLoading(true);
 
       try {
@@ -51,7 +53,7 @@ mutation.mutate(
     throwOnError: true,
     // @ts-expect-error extra prop
     extra: "oh dear",
-  },
+  }
 );
 
 type test = [
@@ -63,12 +65,12 @@ type test = [
         user: { name: string; email: string },
         opts?: {
           throwOnError?: boolean;
-        },
+        }
       ) => Promise<{
         id: string;
         name: string;
         email: string;
       }>
     >
-  >,
+  >
 ];
