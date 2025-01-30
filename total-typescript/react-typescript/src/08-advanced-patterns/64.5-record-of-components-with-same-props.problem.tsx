@@ -22,9 +22,13 @@ const COMPONENTS = {
   password: (props) => {
     return <input {...props} type="password" />;
   },
+} satisfies Record<string, React.ComponentType<InputProps>>;
+
+type Props = Omit<InputProps, "type"> & {
+  type: keyof typeof COMPONENTS;
 };
 
-export const Input = (props: unknown) => {
+export const Input = (props: Props) => {
   const Component = COMPONENTS[props.type];
   return <Component {...props} />;
 };
