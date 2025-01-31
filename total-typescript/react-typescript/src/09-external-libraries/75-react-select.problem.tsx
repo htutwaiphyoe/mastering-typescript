@@ -1,4 +1,4 @@
-import ReactSelect from "react-select";
+import ReactSelect, { Props } from "react-select";
 import { Equal, Expect } from "../helpers/type-utils";
 
 /**
@@ -7,7 +7,7 @@ import { Equal, Expect } from "../helpers/type-utils";
  *
  * Here's a clue: ReactSelect exports a type called 'Props'...
  */
-export const Select = (props) => {
+export const Select = <T, U extends boolean = false>(props: Props<T, U>) => {
   return <ReactSelect {...props} />;
 };
 
