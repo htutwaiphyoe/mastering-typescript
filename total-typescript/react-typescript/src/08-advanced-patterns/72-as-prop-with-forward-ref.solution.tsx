@@ -10,7 +10,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 // Added fixedForwardRef from a previous exercise
 
 type FixedForwardRef = <T, P = {}>(
-  render: (props: P, ref: React.Ref<T>) => React.ReactNode,
+  render: (props: P, ref: React.Ref<T>) => React.ReactNode
 ) => (props: P & React.RefAttributes<T>) => React.ReactNode;
 
 const fixedForwardRef = forwardRef as FixedForwardRef;
@@ -28,7 +28,7 @@ export const UnwrappedLink = <TAs extends ElementType>(
     ComponentPropsWithRef<ElementType extends TAs ? "a" : TAs>,
     "as"
   >,
-  ref: ForwardedRef<any>,
+  ref: ForwardedRef<any>
 ) => {
   const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest} ref={ref}></Comp>;
@@ -117,10 +117,10 @@ const Example2 = () => {
 const Custom = forwardRef(
   (
     props: { thisIsRequired: boolean },
-    ref: React.ForwardedRef<HTMLAnchorElement>,
+    ref: React.ForwardedRef<HTMLAnchorElement>
   ) => {
     return <a ref={ref} />;
-  },
+  }
 );
 
 const Example3 = () => {
