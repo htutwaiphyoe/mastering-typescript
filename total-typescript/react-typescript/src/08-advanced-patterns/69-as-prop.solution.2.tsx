@@ -3,7 +3,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 export const Wrapper = <TAs extends keyof JSX.IntrinsicElements>(
   props: {
     as: TAs;
-  } & React.ComponentProps<TAs>,
+  } & React.ComponentProps<TAs>
 ) => {
   const Comp = props.as as string;
 

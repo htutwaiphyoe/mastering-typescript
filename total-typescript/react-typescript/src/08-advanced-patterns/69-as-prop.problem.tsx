@@ -22,9 +22,16 @@
  * - Indexed access types
  */
 
+import { ComponentProps } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const Wrapper = (props: any) => {
+type Props<T extends keyof JSX.IntrinsicElements> = ComponentProps<T> & {
+  as: T;
+};
+
+export const Wrapper = <T extends keyof JSX.IntrinsicElements>(
+  props: Props<T>
+) => {
   const Comp = props.as;
   return <Comp {...(props as any)}></Comp>;
 };

@@ -3,11 +3,11 @@ import { Equal, Expect } from "../helpers/type-utils";
 // Commented out because it makes the whole repo slow to typecheck
 // Uncomment to see it working!
 
-// type AsProps = {
-//   [K in keyof JSX.IntrinsicElements]: {
-//     as: K;
-//   } & JSX.IntrinsicElements[K];
-// }[keyof JSX.IntrinsicElements];
+type AsProps = {
+  [K in keyof JSX.IntrinsicElements]: {
+    as: K;
+  } & JSX.IntrinsicElements[K];
+}[keyof JSX.IntrinsicElements];
 
 export const Wrapper = (props: AsProps) => {
   const Comp = props.as;
